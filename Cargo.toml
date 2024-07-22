@@ -1,0 +1,25 @@
+[package]
+name = "near_diamond_vault"
+version = "1.0.0"
+authors = ["Alan777 <alanestrada@cloudmex.io>"]
+edition = "2021"
+
+[lib]
+crate-type = ["cdylib"]
+
+[dependencies]
+near-sdk = "=4.0.0-pre.5"
+serde_json = "1.0"
+near-sys = "0.1.0"
+uint = { version = "0.9.3", default-features = false }
+
+[profile.release]
+codegen-units = 1
+opt-level = "z"
+lto = true
+debug = false
+panic = "abort"
+overflow-checks = true
+
+[workspace]
+members = []
